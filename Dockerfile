@@ -4,5 +4,5 @@ RUN git clone https://github.com/Guru322/GURU-BOT /root/guru
 RUN rm -rf /root/guru/.git
 WORKDIR /root/guru
 RUN npm install
-EXPOSE 8000
+EXPOSE 3000
 CMD ["npm","start" ]
