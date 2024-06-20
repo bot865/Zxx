@@ -1,19 +1,8 @@
-FROM node:lts-buster
 
-RUN apt-get update && \
-  apt-get install -y \
-  ffmpeg \
-  imagemagick \
-  webp && \
-  apt-get upgrade -y && \
-  rm -rf /var/lib/apt/lists/*
-
-COPY package.json .
-
-RUN npm install && npm install qrcode-terminal
-
-COPY . .
-
-EXPOSE 5000
-
-CMD ["npm", "start"]
+FROM quay.io/gurusensei/guru-bot
+RUN git clone https://github.com/Guru322/GURU-BOT /root/guru
+RUN rm -rf /root/guru/.git
+WORKDIR /root/guru
+RUN npm install
+EXPOSE 8000
+CMD ["npm","start" ]
